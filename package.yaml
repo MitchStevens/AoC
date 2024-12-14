@@ -1,0 +1,178 @@
+author: Author name here
+copyright: 2022 Author name here
+default-extensions:
+- FlexibleContexts
+- DeriveFunctor
+- DeriveFoldable
+- DeriveTraversable
+- TypeFamilies
+- FlexibleInstances
+- MultiWayIf
+- LambdaCase
+- MultiParamTypeClasses
+- TemplateHaskell
+- TupleSections
+- ScopedTypeVariables
+- TypeOperators
+dependencies:
+- base >= 4.7 && < 5
+- array
+- comonad
+- containers
+- data-fix
+- free
+- algebraic-graphs
+- heap
+- indexed-traversable
+- lens
+- megaparsec
+- monad-memo
+- mtl
+- multiset
+- parser-combinators
+- recursion-schemes
+- semialign
+- split
+- matrix
+- these
+- transformers
+- sbv
+- vector
+- witherable
+description: Please see the README on GitHub at <https://github.com/githubuser/advent-haskell#readme>
+executables:
+  advent-2023-2:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2023/Day2
+  advent-2023-24:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2023/Day24
+  advent-2024-1:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day1
+  advent-2024-10:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day10
+  advent-2024-11:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day11
+  advent-2024-2:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day2
+  advent-2024-3:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day3
+  advent-2024-4:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day4
+  advent-2024-5:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day5
+  advent-2024-6:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day6
+  advent-2024-7:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day7
+  advent-2024-8:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day8
+  advent-2024-9:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day9
+extra-source-files:
+- README.md
+- CHANGELOG.md
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+github: githubuser/advent-haskell
+license: BSD3
+maintainer: example@example.com
+name: advent-haskell
+version: 0.1.0.0
