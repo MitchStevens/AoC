@@ -25,6 +25,10 @@ import Control.Monad
 --    , part2 :: Maybe (s -> String)
 --    }
 
+--instance Num a => Num (Pair a) where
+--    (x1, y1) + (x2, y2) = (x1+x2, y1+y2)
+--    (x1, y1) - (x2, y2) = (x1-x2, y1-y2)
+--    fromInteger n = let x = fromInteger n in (x, x)
 
 getInput :: Int -> IO [String]
 getInput = undefined

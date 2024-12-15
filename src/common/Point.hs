@@ -15,6 +15,9 @@ instance Num Point where
 origin :: Point
 origin = (0, 0)
 
+--map :: (Int -> Int) -> Point -> Point
+--map f (a, b) = (f a, f b)
+
 --allPoints :: [Point]
 --allPoints = origin : ([1..] >>= (\x -> singleCorners x >>= allRotations))
 --    where

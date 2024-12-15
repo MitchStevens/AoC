@@ -20,27 +20,27 @@ package = {
 
   "dependencies": [
     "base >= 4.7 && < 5",
+    "algebraic-graphs",
     "array",
     "comonad",
     "containers",
     "data-fix",
     "free",
-    "algebraic-graphs",
-    "heap",
+    "ghc",
     "indexed-traversable",
     "lens",
+    "matrix",
     "megaparsec",
     "monad-memo",
     "mtl",
     "multiset",
     "parser-combinators",
     "recursion-schemes",
+    "sbv",
     "semialign",
     "split",
-    "matrix",
     "these",
     "transformers",
-    "sbv",
     "vector",
     "witherable",
   ],
@@ -86,7 +86,7 @@ for year in (os.scandir("./src")):
   for dayFilePath in os.listdir(year):
     day = re.match("Day([0-9]+)", dayFilePath).group(1)
     package["executables"]["advent-" + year.name + "-" + day] = {
-      "main": "Main",
+      "main": f"Main",
       "source-dirs": [ "src/common", f"src/{year.name}/Day{day}" ],
       "ghc-options": [
         "-threaded",
@@ -97,71 +97,3 @@ for year in (os.scandir("./src")):
 
 with open('package.yaml', 'w') as outfile:
     yaml.dump(package, outfile, default_flow_style=False)
-
-#executables:
-#  advent: 
-#    main: Main.hs
-#    source-dirs:
-#    - app
-#    - src/2020
-#    - src/2021
-#    - src/2022
-#    - src/2023
-#    - src/common
-#    ghc-options:
-#    - -threaded
-#    - -rtsopts
-#    - -with-rtsopts=-N
-#
-#
-#tests:
-#  # 2022-test:
-#  #   main:                Spec.hs
-#  #   source-dirs:         
-#  #   - test/2022
-#  #   - src/2022
-#  #   - src/common
-#  #   ghc-options:
-#  #   - -threaded
-#  #   - -rtsopts
-#  #   - -with-rtsopts=-N
-#  #   dependencies:
-#  #   - hspec
-#
-#  2021-test:
-#    main:                Spec.hs
-#    source-dirs:         
-#    - test/2021
-#    - src/2021
-#    - src/common
-#    ghc-options:
-#    - -threaded
-#    - -rtsopts
-#    - -with-rtsopts=-N
-#    dependencies:
-#    - hspec
-#
-#  2020-test:
-#    main:                Spec.hs
-#    source-dirs:         
-#    - test/2020
-#    - src/2020
-#    - src/common
-#    ghc-options:
-#    - -threaded
-#    - -rtsopts
-#    - -with-rtsopts=-N
-#    dependencies:
-#    - hspec
-#
-#  common-test:
-#    main:                Spec.hs
-#    source-dirs:         
-#    - test/common
-#    - src/common
-#    ghc-options:
-#    - -threaded
-#    - -rtsopts
-#    - -with-rtsopts=-N
-#    dependencies:
-#    - hspec

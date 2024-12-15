@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings #-}
+
 
 import Advent
 import Data.List
@@ -24,7 +24,7 @@ isSmallDiff :: Int -> Int -> Bool
 isSmallDiff a b = abs (a-b) >= 1 && abs (a-b) <= 3
 
 isSafe :: Zipper Int -> Bool
-isSafe (Zipper (l:ls) v (r:rs)) = 
+isSafe (Zipper (l:ls) v (r:rs)) =
   signum (l - v) == signum (v - r) && isSmallDiff l v && isSmallDiff v r
 isSafe (Zipper [] v (r:rs)) = isSmallDiff v r
 isSafe (Zipper (l:ls) v []) = isSmallDiff l v
@@ -37,7 +37,7 @@ isSafeWithDampener level@(Zipper [] v (r:rs)) =
   isSafe level || isSafe (Zipper [] r rs)
 isSafeWithDampener level@(Zipper [] v []) =
   isSafe level
-  
+
 part1 :: [Zipper Int] -> Int
 part1 = length . filter and . fmap (extend isSafe)
 

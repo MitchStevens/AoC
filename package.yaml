@@ -16,27 +16,27 @@ default-extensions:
 - TypeOperators
 dependencies:
 - base >= 4.7 && < 5
+- algebraic-graphs
 - array
 - comonad
 - containers
 - data-fix
 - free
-- algebraic-graphs
-- heap
+- ghc
 - indexed-traversable
 - lens
+- matrix
 - megaparsec
 - monad-memo
 - mtl
 - multiset
 - parser-combinators
 - recursion-schemes
+- sbv
 - semialign
 - split
-- matrix
 - these
 - transformers
-- sbv
 - vector
 - witherable
 description: Please see the README on GitHub at <https://github.com/githubuser/advent-haskell#readme>
@@ -86,6 +86,24 @@ executables:
     source-dirs:
     - src/common
     - src/2024/Day11
+  advent-2024-14:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day14
+  advent-2024-15:
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    main: Main
+    source-dirs:
+    - src/common
+    - src/2024/Day15
   advent-2024-2:
     ghc-options:
     - -threaded

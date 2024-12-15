@@ -29,6 +29,7 @@ executable advent-2023-2
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -62,7 +63,7 @@ executable advent-2023-2
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -87,6 +88,7 @@ executable advent-2023-24
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -120,7 +122,7 @@ executable advent-2023-24
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -145,6 +147,7 @@ executable advent-2024-1
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -178,7 +181,7 @@ executable advent-2024-1
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -203,6 +206,7 @@ executable advent-2024-10
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -236,7 +240,7 @@ executable advent-2024-10
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -261,6 +265,7 @@ executable advent-2024-11
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -294,7 +299,125 @@ executable advent-2024-11
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
+    , indexed-traversable
+    , lens
+    , matrix
+    , megaparsec
+    , monad-memo
+    , mtl
+    , multiset
+    , parser-combinators
+    , recursion-schemes
+    , sbv
+    , semialign
+    , split
+    , these
+    , transformers
+    , vector
+    , witherable
+  default-language: Haskell2010
+
+executable advent-2024-14
+  main-is: Main.hs
+  other-modules:
+      Advent
+      Array2D
+      Binary
+      Braille
+      Graph
+      Interval
+      Parsers
+      Point
+      Range
+      Zipper
+      Paths_advent_haskell
+  hs-source-dirs:
+      src/common
+      src/2024/Day14
+  default-extensions:
+      FlexibleContexts
+      DeriveFunctor
+      DeriveFoldable
+      DeriveTraversable
+      TypeFamilies
+      FlexibleInstances
+      MultiWayIf
+      LambdaCase
+      MultiParamTypeClasses
+      TemplateHaskell
+      TupleSections
+      ScopedTypeVariables
+      TypeOperators
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  build-depends:
+      algebraic-graphs
+    , array
+    , base >=4.7 && <5
+    , comonad
+    , containers
+    , data-fix
+    , free
+    , ghc
+    , indexed-traversable
+    , lens
+    , matrix
+    , megaparsec
+    , monad-memo
+    , mtl
+    , multiset
+    , parser-combinators
+    , recursion-schemes
+    , sbv
+    , semialign
+    , split
+    , these
+    , transformers
+    , vector
+    , witherable
+  default-language: Haskell2010
+
+executable advent-2024-15
+  main-is: Main.hs
+  other-modules:
+      Advent
+      Array2D
+      Binary
+      Braille
+      Graph
+      Interval
+      Parsers
+      Point
+      Range
+      Zipper
+      Paths_advent_haskell
+  hs-source-dirs:
+      src/common
+      src/2024/Day15
+  default-extensions:
+      FlexibleContexts
+      DeriveFunctor
+      DeriveFoldable
+      DeriveTraversable
+      TypeFamilies
+      FlexibleInstances
+      MultiWayIf
+      LambdaCase
+      MultiParamTypeClasses
+      TemplateHaskell
+      TupleSections
+      ScopedTypeVariables
+      TypeOperators
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  build-depends:
+      algebraic-graphs
+    , array
+    , base >=4.7 && <5
+    , comonad
+    , containers
+    , data-fix
+    , free
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -319,6 +442,7 @@ executable advent-2024-2
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -352,7 +476,7 @@ executable advent-2024-2
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -377,6 +501,7 @@ executable advent-2024-3
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -410,7 +535,7 @@ executable advent-2024-3
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -435,6 +560,7 @@ executable advent-2024-4
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -468,7 +594,7 @@ executable advent-2024-4
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -493,6 +619,7 @@ executable advent-2024-5
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -526,7 +653,7 @@ executable advent-2024-5
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -551,6 +678,7 @@ executable advent-2024-6
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -584,7 +712,7 @@ executable advent-2024-6
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -609,6 +737,7 @@ executable advent-2024-7
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -642,7 +771,7 @@ executable advent-2024-7
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -667,6 +796,7 @@ executable advent-2024-8
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -700,7 +830,7 @@ executable advent-2024-8
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
@@ -725,6 +855,7 @@ executable advent-2024-9
       Advent
       Array2D
       Binary
+      Braille
       Graph
       Interval
       Parsers
@@ -758,7 +889,7 @@ executable advent-2024-9
     , containers
     , data-fix
     , free
-    , heap
+    , ghc
     , indexed-traversable
     , lens
     , matrix
