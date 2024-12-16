@@ -12,6 +12,7 @@ import Point
 import Data.List (unfoldr, transpose)
 import Data.Ix
 import Data.Functor.WithIndex
+import Data.Foldable.WithIndex
 
 showArray2D :: Array Point Char -> String
 showArray2D arr = unlines (map line [0..y])
@@ -44,3 +45,6 @@ tabulate rng f = A.listArray rng (map f $ range rng)
 
 recurse :: Ix i => Array i a -> (Array i b -> i -> b) -> Array i b
 recurse arr f = fix (tabulate (A.bounds arr) . f)
+
+findIndex :: (Eq e, Ix i) => Array i e -> e -> Maybe i
+findIndex arr target = ifoldl (\i maybeInd e -> if e == target then Just i else maybeInd) Nothing arr

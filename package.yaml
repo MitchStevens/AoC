@@ -42,140 +42,101 @@ dependencies:
 description: Please see the README on GitHub at <https://github.com/githubuser/advent-haskell#readme>
 executables:
   advent-2023-2:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2023/Day2
+    - src/
+    - app/2023/Day2/
   advent-2023-24:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2023/Day24
+    - src/
+    - app/2023/Day24/
   advent-2024-1:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day1
+    - src/
+    - app/2024/Day1/
   advent-2024-10:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day10
+    - src/
+    - app/2024/Day10/
   advent-2024-11:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day11
+    - src/
+    - app/2024/Day11/
   advent-2024-14:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day14
+    - src/
+    - app/2024/Day14/
   advent-2024-15:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day15
+    - src/
+    - app/2024/Day15/
+  advent-2024-16:
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - src/
+    - app/2024/Day16/
   advent-2024-2:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day2
+    - src/
+    - app/2024/Day2/
   advent-2024-3:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day3
+    - src/
+    - app/2024/Day3/
   advent-2024-4:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day4
+    - src/
+    - app/2024/Day4/
   advent-2024-5:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day5
+    - src/
+    - app/2024/Day5/
   advent-2024-6:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day6
+    - src/
+    - app/2024/Day6/
   advent-2024-7:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day7
+    - src/
+    - app/2024/Day7/
   advent-2024-8:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day8
+    - src/
+    - app/2024/Day8/
   advent-2024-9:
-    ghc-options:
-    - -threaded
-    - -rtsopts
-    - -with-rtsopts=-N
+    ghc-options: []
     main: Main
     source-dirs:
-    - src/common
-    - src/2024/Day9
+    - src/
+    - app/2024/Day9/
 extra-source-files:
 - README.md
 - CHANGELOG.md
@@ -190,6 +151,9 @@ ghc-options:
 - -Wpartial-fields
 - -Wredundant-constraints
 github: githubuser/advent-haskell
+library:
+  dependencies: []
+  source-dirs: ./app
 license: BSD3
 maintainer: example@example.com
 name: advent-haskell

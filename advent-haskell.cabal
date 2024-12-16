@@ -23,23 +23,11 @@ source-repository head
   type: git
   location: https://github.com/githubuser/advent-haskell
 
-executable advent-2023-2
-  main-is: Main.hs
+library
   other-modules:
-      Advent
-      Array2D
-      Binary
-      Braille
-      Graph
-      Interval
-      Parsers
-      Point
-      Range
-      Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2023/Day2
+      ./app
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -54,7 +42,68 @@ executable advent-2023-2
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints
+  build-depends:
+      algebraic-graphs
+    , array
+    , base >=4.7 && <5
+    , comonad
+    , containers
+    , data-fix
+    , free
+    , ghc
+    , indexed-traversable
+    , lens
+    , matrix
+    , megaparsec
+    , monad-memo
+    , mtl
+    , multiset
+    , parser-combinators
+    , recursion-schemes
+    , sbv
+    , semialign
+    , split
+    , these
+    , transformers
+    , vector
+    , witherable
+  default-language: Haskell2010
+
+executable advent-2023-2
+  main-is: Main.hs
+  other-modules:
+      Advent
+      Array2D
+      Binary
+      Braille
+      Facing
+      Graph
+      Interval
+      Parsers
+      Point
+      Range
+      Rotation
+      Zipper
+      Paths_advent_haskell
+  hs-source-dirs:
+      src/
+      app/2023/Day2/
+  default-extensions:
+      FlexibleContexts
+      DeriveFunctor
+      DeriveFoldable
+      DeriveTraversable
+      TypeFamilies
+      FlexibleInstances
+      MultiWayIf
+      LambdaCase
+      MultiParamTypeClasses
+      TemplateHaskell
+      TupleSections
+      ScopedTypeVariables
+      TypeOperators
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -89,16 +138,18 @@ executable advent-2023-24
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2023/Day24
+      src/
+      app/2023/Day24/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -113,7 +164,7 @@ executable advent-2023-24
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -148,16 +199,18 @@ executable advent-2024-1
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day1
+      src/
+      app/2024/Day1/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -172,7 +225,7 @@ executable advent-2024-1
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -207,16 +260,18 @@ executable advent-2024-10
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day10
+      src/
+      app/2024/Day10/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -231,7 +286,7 @@ executable advent-2024-10
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -266,16 +321,18 @@ executable advent-2024-11
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day11
+      src/
+      app/2024/Day11/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -290,7 +347,7 @@ executable advent-2024-11
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -325,16 +382,18 @@ executable advent-2024-14
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day14
+      src/
+      app/2024/Day14/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -349,7 +408,7 @@ executable advent-2024-14
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -384,16 +443,18 @@ executable advent-2024-15
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day15
+      src/
+      app/2024/Day15/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -408,7 +469,68 @@ executable advent-2024-15
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
+  build-depends:
+      algebraic-graphs
+    , array
+    , base >=4.7 && <5
+    , comonad
+    , containers
+    , data-fix
+    , free
+    , ghc
+    , indexed-traversable
+    , lens
+    , matrix
+    , megaparsec
+    , monad-memo
+    , mtl
+    , multiset
+    , parser-combinators
+    , recursion-schemes
+    , sbv
+    , semialign
+    , split
+    , these
+    , transformers
+    , vector
+    , witherable
+  default-language: Haskell2010
+
+executable advent-2024-16
+  main-is: Main.hs
+  other-modules:
+      Advent
+      Array2D
+      Binary
+      Braille
+      Facing
+      Graph
+      Interval
+      Parsers
+      Point
+      Range
+      Rotation
+      Zipper
+      Paths_advent_haskell
+  hs-source-dirs:
+      src/
+      app/2024/Day16/
+  default-extensions:
+      FlexibleContexts
+      DeriveFunctor
+      DeriveFoldable
+      DeriveTraversable
+      TypeFamilies
+      FlexibleInstances
+      MultiWayIf
+      LambdaCase
+      MultiParamTypeClasses
+      TemplateHaskell
+      TupleSections
+      ScopedTypeVariables
+      TypeOperators
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -443,16 +565,18 @@ executable advent-2024-2
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day2
+      src/
+      app/2024/Day2/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -467,7 +591,7 @@ executable advent-2024-2
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -502,16 +626,18 @@ executable advent-2024-3
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day3
+      src/
+      app/2024/Day3/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -526,7 +652,7 @@ executable advent-2024-3
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -561,16 +687,18 @@ executable advent-2024-4
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day4
+      src/
+      app/2024/Day4/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -585,7 +713,7 @@ executable advent-2024-4
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -620,16 +748,18 @@ executable advent-2024-5
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day5
+      src/
+      app/2024/Day5/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -644,7 +774,7 @@ executable advent-2024-5
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -679,16 +809,18 @@ executable advent-2024-6
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day6
+      src/
+      app/2024/Day6/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -703,7 +835,7 @@ executable advent-2024-6
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -738,16 +870,18 @@ executable advent-2024-7
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day7
+      src/
+      app/2024/Day7/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -762,7 +896,7 @@ executable advent-2024-7
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -797,16 +931,18 @@ executable advent-2024-8
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day8
+      src/
+      app/2024/Day8/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -821,7 +957,7 @@ executable advent-2024-8
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array
@@ -856,16 +992,18 @@ executable advent-2024-9
       Array2D
       Binary
       Braille
+      Facing
       Graph
       Interval
       Parsers
       Point
       Range
+      Rotation
       Zipper
       Paths_advent_haskell
   hs-source-dirs:
-      src/common
-      src/2024/Day9
+      src/
+      app/2024/Day9/
   default-extensions:
       FlexibleContexts
       DeriveFunctor
@@ -880,7 +1018,7 @@ executable advent-2024-9
       TupleSections
       ScopedTypeVariables
       TypeOperators
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N -main-is Main
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -main-is Main
   build-depends:
       algebraic-graphs
     , array

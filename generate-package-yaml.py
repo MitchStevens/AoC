@@ -45,6 +45,12 @@ package = {
     "witherable",
   ],
 
+  "library": {
+    "dependencies": [],
+    "source-dirs": "./app"
+  },
+
+
   "default-extensions": [
     "FlexibleContexts",
     "DeriveFunctor",
@@ -79,7 +85,7 @@ package = {
 import os
 import re
 
-for year in (os.scandir("./src")):
+for year in (os.scandir("./app")):
   if not year.name.isdigit():
     break
 
@@ -87,11 +93,8 @@ for year in (os.scandir("./src")):
     day = re.match("Day([0-9]+)", dayFilePath).group(1)
     package["executables"]["advent-" + year.name + "-" + day] = {
       "main": f"Main",
-      "source-dirs": [ "src/common", f"src/{year.name}/Day{day}" ],
+      "source-dirs": [ "src/", f"app/{year.name}/Day{day}/" ],
       "ghc-options": [
-        "-threaded",
-        "-rtsopts",
-        "-with-rtsopts=-N",
       ]
     }
 
