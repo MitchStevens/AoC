@@ -31,7 +31,7 @@ data Hailstone = Hailstone
 main :: IO ()
 main = do
   input <- readInput 2023 24
-  let Right hailstones = runParser (hailstoneP `sepEndBy` newline) "" testInput
+  let Right hailstones = runParser (hailstoneP `sepEndBy` newline) "" input
   --part1 hailstones >>= print
   part2 hailstones >>= print
 
@@ -49,17 +49,19 @@ hailstoneP = do
   pure (Hailstone pos vel)
 
 intersection2 :: Hailstone -> Hailstone -> IO Bool
-intersection2 h1 h2 = fmap modelExists . sat $ do
-  s <- sInt64 "s"
-  t <- sInt64 "t"
-  constrain $ s .>= 0
-  constrain $ t .>= 0
-  for_ (take 2 $ zip4 (pos h1) (vel h1) (pos h2) (vel h2)) $ \(p1, v1, p2, v2) -> do
-    let l1 = fromIntegral p1 + s*(fromIntegral v1)
-    let l2  = fromIntegral p2 + t*(fromIntegral v2)
-    constrain $ l1 .== l2
-    constrain $ a .<= l1
-    constrain $ l1 .<= b
+intersection2 h1 h2 = do
+  print "hello"
+  isSatisfiable $ do
+    s <- sInt64 "s"
+    t <- sInt64 "t"
+    constrain $ s .>= 0
+    constrain $ t .>= 0
+    for_ (take 2 $ zip4 (pos h1) (vel h1) (pos h2) (vel h2)) $ \(p1, v1, p2, v2) -> do
+      let l1 = fromIntegral p1 + s*(fromIntegral v1)
+      let l2  = fromIntegral p2 + t*(fromIntegral v2)
+      constrain $ l1 .== l2
+      constrain $ a .<= l1
+      constrain $ l1 .<= b
 
   where
     (a, b) = (fromIntegral 200000000000000, fromIntegral 400000000000000)
@@ -74,34 +76,29 @@ part1 hailstones = fmap length $ filterM (uncurry intersection2)
   
 -- p1 + t*v1 = pr + t*vr
 
-part2 :: [Hailstone] -> IO Int64
+part2 :: [Hailstone] -> IO Integer
 part2 hailstones = do
-  --res <- satWith (cvc5 {extraArgs = [ "-memory:4000" ]} ) symbolics
-  res <- satWith mathSAT symbolics
-  --res <- prove z3 symbolics
-  --let optimizeStyle = Lexicographic
-  --res <- dsatWith (z3 {extraArgs = [ "-memory:4000" ]} ) symbolics
+  res <- satWith z3 symbolics
 
-
-  print ( res)
-  pure 0
+  let Just (a :: [Integer]) = traverse (\s -> getModelValue s res) ["prx", "pry", "prz"]
+  pure (sum a)
 
   where
 
 
     symbolics :: Symbolic ()
     symbolics = do
-      prx <- sInt64 "prx"
-      pry <- sInt64 "pry"
-      prz <- sInt64 "prz"
-      vrx <- sInt64 "vrx"
-      vry <- sInt64 "vry"
-      vrz <- sInt64 "vrz"
+      prx <- sInteger "prx"
+      pry <- sInteger "pry"
+      prz <- sInteger "prz"
+      vrx <- sInteger "vrx"
+      vry <- sInteger "vry"
+      vrz <- sInteger "vrz"
       let pr = [ prx, pry, prz ]
       let vr = [ vrx, vry, vrz ]
 
-      for_ hailstones $ \h -> do
-        lambda <- sInt64_
+      for_ (take 3 hailstones) $ \h -> do
+        lambda <- sInteger_
         constrain $ lambda .>= 0
         for_ (zip4 (pos h) (vel h) pr vr) $ \(p, v, p', v') -> do
           let l1 = fromIntegral p + lambda*(fromIntegral v)

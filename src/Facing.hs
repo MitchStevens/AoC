@@ -2,9 +2,18 @@ module Facing where
 
 import Point
 import Rotation
+import Data.Hashable
+import GHC.Generics
 
 data Facing = U | R | D | L
-  deriving (Eq, Ord, Enum)
+  deriving (Eq, Ord, Show, Enum, Generic)
+
+instance Hashable Facing where
+  hash = \case
+    U -> 0
+    R -> 1
+    D -> 2
+    L -> 3
 
 rotationBetween :: Facing -> Facing -> Rotation
 rotationBetween a b = rotation (fromEnum b - fromEnum a)

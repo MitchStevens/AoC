@@ -1,8 +1,6 @@
 year=$1
 day=$2
 
-download_file $year $day
-
 dir="./inputs/$year"
 file="$dir/day$day.txt"
 

@@ -5,9 +5,9 @@ import Facing
 import Data.Array (Array)
 import qualified Data.Array as A
 import Array2D as A2D
-import Data.Map.Lazy (Map)
-import qualified Data.Map.Lazy as M
-import Control.Monad.Memo
+import Data.Hashable
+import GHC.Generics
+import Graph
 
 
 testInput =
@@ -29,7 +29,10 @@ testInput =
   ]
 
 data Raindeer = Raindeer { pos :: Point, facing :: Facing }
-  deriving (Eq, Ord)
+  deriving (Eq, Ord, Show, Generic)
+
+instance Hashable Raindeer where
+  hash (Raindeer pos facing) = hash facing + 4 * hash pos
 
 
 data Move = RotateLeft | RotateRight | MoveForwards
@@ -37,15 +40,10 @@ type Cost = Int
 
 main :: IO ()
 main = do
-  input <- readInput 2024 16
-  let maze = readArray2D id testInput
+  input <- lines <$> readInput 2024 16
+  let maze = readArray2D id input
   print (part1 maze)
   pure ()
-
-cost :: Move -> Int
-cost = \case
-  MoveForwards -> 1
-  _ -> 1000
 
 runMove :: Move -> Raindeer -> Raindeer
 runMove move (Raindeer pos facing) = case move of
@@ -59,23 +57,26 @@ invertRunMove move deer@(Raindeer pos facing) = case move of
   RotateRight  -> runMove RotateLeft deer
   MoveForwards -> Raindeer (toDirection (turn 2 facing) pos) facing
 
+nextNode :: Array Point Char -> Raindeer -> [(Raindeer, Int)]
+nextNode maze deer@(Raindeer pos facing) = case safeLookup maze pos of
+  Just 'E' -> []
+  Just '#' -> []
+  Nothing  -> []
+  _ ->  
+    [ (runMove RotateLeft   deer, 1000)
+    , (runMove RotateRight  deer, 1000)
+    , (runMove MoveForwards deer, 1)
+    ]
 
-ffff :: Array Point Char -> Raindeer -> Memo Raindeer Cost Cost
-ffff maze = f
-  where
-    f :: Raindeer -> Memo Raindeer Cost Cost
-    f deer@(Raindeer pos facing) = 
-      case safeLookup maze pos of
-        Just 'E' -> pure 0
-        Just '#' -> pure maxBound
-        Nothing -> pure maxBound
-        _ -> minimum <$> sequence
-          [ (1000 +) <$> memo f (invertRunMove RotateLeft   deer)
-          , (1000 +) <$> memo f (invertRunMove RotateRight  deer)
-          , (1 +)    <$> memo f (invertRunMove MoveForwards deer)
-          ]
+
+
 
 part1 :: Array Point Char -> Int
-part1 maze = 
-  let Just startPos = A2D.findIndex maze 'S'
-  in startEvalMemo (ffff maze (Raindeer startPos R))
+part1 maze = fromMaybe maxBound $ do
+  pure 1
+--  start <- A2D.findIndex maze 'S'
+--  goal <- A2D.findIndex maze 'E'
+--  fst <$> astarSearch (Raindeer start R) (\deer -> pos deer == goal) (nextNode maze)  (const maxBound)
+
+--part2 :: Array Point Char -> Maybe Int
+--part2 maze

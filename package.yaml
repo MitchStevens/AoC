@@ -5,6 +5,7 @@ default-extensions:
 - DeriveFunctor
 - DeriveFoldable
 - DeriveTraversable
+- DeriveGeneric
 - TypeFamilies
 - FlexibleInstances
 - MultiWayIf
@@ -15,7 +16,7 @@ default-extensions:
 - ScopedTypeVariables
 - TypeOperators
 dependencies:
-- base >= 4.7 && < 5
+- base >= 4.19 && < 5
 - algebraic-graphs
 - array
 - comonad
@@ -26,12 +27,15 @@ dependencies:
 - indexed-traversable
 - lens
 - matrix
+- hashable
 - megaparsec
 - monad-memo
 - mtl
 - multiset
 - parser-combinators
 - recursion-schemes
+- pqueue
+- unordered-containers
 - sbv
 - semialign
 - split
@@ -41,6 +45,12 @@ dependencies:
 - witherable
 description: Please see the README on GitHub at <https://github.com/githubuser/advent-haskell#readme>
 executables:
+  advent-2023-1:
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - src/
+    - app/2023/Day1/
   advent-2023-2:
     ghc-options: []
     main: Main
@@ -89,6 +99,12 @@ executables:
     source-dirs:
     - src/
     - app/2024/Day16/
+  advent-2024-17:
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - src/
+    - app/2024/Day17/
   advent-2024-2:
     ghc-options: []
     main: Main

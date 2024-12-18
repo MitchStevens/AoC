@@ -1,7 +1,7 @@
 year=$1
 day=$2
 
-dir="./src/$year/Day$day"
+dir="./app/$year/Day$day"
 file="$dir/Main.hs"
 contents="import Advent
 
@@ -14,6 +14,6 @@ main = do
 mkdir -p "$dir"
 echo "$contents" > $file
 
-./generate-package-yaml
+./generate-package-yaml.py
 
 ./download_input.sh "$year" "$day"
