@@ -78,6 +78,7 @@ executable advent-2023-1
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -143,6 +144,7 @@ executable advent-2023-2
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -208,6 +210,7 @@ executable advent-2023-24
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -273,6 +276,7 @@ executable advent-2024-1
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -338,6 +342,7 @@ executable advent-2024-10
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -403,6 +408,7 @@ executable advent-2024-11
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -468,6 +474,7 @@ executable advent-2024-14
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -533,6 +540,7 @@ executable advent-2024-15
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -598,6 +606,7 @@ executable advent-2024-16
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -663,6 +672,7 @@ executable advent-2024-17
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -728,6 +738,7 @@ executable advent-2024-2
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -793,6 +804,7 @@ executable advent-2024-3
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -858,6 +870,7 @@ executable advent-2024-4
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -923,6 +936,7 @@ executable advent-2024-5
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -988,6 +1002,7 @@ executable advent-2024-6
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -1053,6 +1068,7 @@ executable advent-2024-7
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -1118,6 +1134,7 @@ executable advent-2024-8
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille
@@ -1183,6 +1200,7 @@ executable advent-2024-9
   main-is: Main.hs
   other-modules:
       Advent
+      Advent.Solution
       Array2D
       Binary
       Braille

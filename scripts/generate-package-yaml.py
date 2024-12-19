@@ -102,5 +102,5 @@ for year in (os.scandir("./app")):
       ]
     }
 
-with open('package.yaml', 'w') as outfile:
-    yaml.dump(package, outfile, default_flow_style=False)
+# with open('package.yaml', 'w') as outfile:
+#     yaml.dump(package, outfile, default_flow_style=False)

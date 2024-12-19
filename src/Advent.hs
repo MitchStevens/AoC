@@ -33,15 +33,6 @@ readInput :: Int -> Int -> IO String
 readInput year day = readFile
     ("inputs/" <> show year <> "/day" <> show day <> ".txt")
 
-mostCommon :: Ord a => [a] -> a
-mostCommon = head . maximumBy (compare `on` length) . group . sort
-
-leastCommon :: Ord a => [a] -> a
-leastCommon = head . maximumBy (compare `on` length) . group . sort
-
-countInstances :: Ord a => [a] -> Map a (Sum Int)
-countInstances = M.fromList . map (\l -> (head l, pure (length l))) . group . sort
-
 steadyState :: Eq a => (a -> a) -> a -> (Int, a)
 steadyState f a = if f a == a then (0, a) else first succ (steadyState f (f a))
 
@@ -51,6 +42,3 @@ distinctPairs values = do
     b <- values
     guard (a < b)
     pure (a, b)
-
-instance Num a => Num (a, a) where
-    

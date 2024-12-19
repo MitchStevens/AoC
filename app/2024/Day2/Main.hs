@@ -13,9 +13,8 @@ newtype Delta = Delta Int
 main = do
   input <- readInput 2024 2
   let levels = fmap (toZipper . map read . words) . lines $ input
-  print (show (part1 levels))
-  print (show (part2 levels))
-  print . show . fmap (and .  extend isSafeWithDampener) $ levels
+  print (part1 levels)
+  print (part2 levels)
 
 toDeltas :: [Int] -> [Delta]
 toDeltas levels = zipWith (\a b -> Delta (a - b)) levels (tail levels)
