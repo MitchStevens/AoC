@@ -1,6 +1,12 @@
 year=$1
 day=$2
 
+if [ -z $2 ]; then
+  year=$(date -d "$1" "+%Y")
+  day=$(date -d "$1" "+%d")
+fi
+
+
 dir="./app/$year/Day$day"
 file="$dir/Main.hs"
 contents="import Advent

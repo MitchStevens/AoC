@@ -32,7 +32,6 @@ package = {
     "matrix",
     "hashable",
     "megaparsec",
-    "monad-memo",
     "mtl",
     "multiset",
     "parser-combinators",

@@ -105,6 +105,18 @@ executables:
     source-dirs:
     - src/
     - app/2024/Day17/
+  advent-2024-18:
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - src/
+    - app/2024/Day18/
+  advent-2024-19:
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - src/
+    - app/2024/Day19/
   advent-2024-2:
     ghc-options: []
     main: Main

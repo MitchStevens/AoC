@@ -9,6 +9,7 @@ import Control.Monad.Writer.Class
 import Control.Monad.RWS.Lazy
 import Data.List
 import Numeric
+import Data.Set (Set)
 import qualified Data.Set as S
 
 data Register = A | B | C
@@ -130,9 +131,6 @@ runProgram = do
 execute :: Computer -> [Int]
 execute = snd . execRWS (runProgram :: RWS () [Int] Computer ()) ()
 
-isQuine :: Computer -> Bool
-isQuine computer = _program computer == execute computer
-
 testInput = unlines
   [ "Register A: 729"
   , "Register B: 0"
@@ -165,27 +163,25 @@ computerP = do
 
 part1 = intercalate "," . map show . execute
 
-part2 (Computer _ regB regC program instPointer) =
-  improveQuineish 0 0
-    # map improveQuineish 
+part2 (Computer _ regB regC program instPointer) = minimum $
+  foldl (\b n -> b `setBind` improveQuineish n) (S.singleton 0) [0..(length program)]
   
   where
-    --computers = (\regA -> Computer regA regB regC program instPointer) <$> [0..100000000]
+    
+    showBinary n = showIntAtBase 8 intToDigit n ""
 
-    -- given some isQuineish n quineish, find some x such that isQuineish (n+2) x
+    computer regA = Computer regA regB regC program instPointer
+
+    isQuineish :: Int -> Integer -> Bool
+    isQuineish n regA = take n (_program (computer regA)) == take n (execute (computer regA))
+
     improveQuineish :: Int -> Integer -> S.Set Integer
     improveQuineish n quineish = S.filter (isQuineish (n+1)) $ potentialImprovements
       where
         potentialImprovements = S.fromList [ i * (8^n) + quineish | i <- [0..512]]
 
-    --isQuine regA = _program quine == execute quine
-    --  where quine = Computer regA regB regC program instPointer
-    
-    isQuineish n regA = take n (_program quine) == take n (execute quine)
-      where quine = Computer regA regB regC program instPointer
-    
-    showBinary n = showIntAtBase 8 intToDigit n ""
-
+    setBind :: Ord b => Set a -> (a -> Set b) -> Set b
+    setBind set f = S.unions (S.map f set)
 
 {-
 
