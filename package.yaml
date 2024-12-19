@@ -29,13 +29,13 @@ dependencies:
 - matrix
 - hashable
 - megaparsec
-- monad-memo
 - mtl
 - multiset
 - parser-combinators
 - recursion-schemes
 - pqueue
 - unordered-containers
+- monad-memo
 - sbv
 - semialign
 - split
@@ -81,6 +81,12 @@ executables:
     source-dirs:
     - src/
     - app/2024/Day11/
+  advent-2024-12:
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - src/
+    - app/2024/Day12/
   advent-2024-14:
     ghc-options: []
     main: Main

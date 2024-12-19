@@ -20,6 +20,6 @@ main = do
 mkdir -p "$dir"
 echo "$contents" > $file
 
-./generate-package-yaml.py
+./scripts/generate-package-yaml.py
 
-./download_input.sh "$year" "$day"
+./scripts/download_input.sh "$year" "$day"

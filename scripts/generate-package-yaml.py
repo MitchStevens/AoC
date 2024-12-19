@@ -27,6 +27,7 @@ package = {
     "data-fix",
     "free",
     "ghc",
+    "group",
     "indexed-traversable",
     "lens",
     "matrix",
@@ -38,6 +39,7 @@ package = {
     "recursion-schemes",
     "pqueue",
     "unordered-containers",
+    "monad-memo",
     "sbv",
     "semialign",
     "split",
@@ -101,5 +103,5 @@ for year in (os.scandir("./app")):
       ]
     }
 
-# with open('package.yaml', 'w') as outfile:
-#     yaml.dump(package, outfile, default_flow_style=False)
+with open('package.yaml', 'w') as outfile:
+    yaml.dump(package, outfile, default_flow_style=False)
