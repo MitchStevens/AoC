@@ -24,6 +24,7 @@ dependencies:
 - data-fix
 - free
 - ghc
+- group
 - indexed-traversable
 - lens
 - matrix
@@ -81,12 +82,12 @@ executables:
     source-dirs:
     - src/
     - app/2024/Day11/
-  advent-2024-12:
+  advent-2024-13:
     ghc-options: []
     main: Main
     source-dirs:
     - src/
-    - app/2024/Day12/
+    - app/2024/Day13/
   advent-2024-14:
     ghc-options: []
     main: Main
