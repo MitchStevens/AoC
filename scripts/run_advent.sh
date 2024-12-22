@@ -3,13 +3,13 @@
 language=$1
 year=$2
 day=$3
-# watch=$3
+watch=$4
 
 ./scripts/download_input.sh "$year" "$day"
 case "$language" in
     "haskell")
         ./scripts/generate-package-yaml.py
-        stack run "advent-$year-$day"
+        command="stack run advent-$year-$day"
         ;;
     "racket")
         echo "racket time"
@@ -21,13 +21,12 @@ esac
 
 
 
-##file="./src/$year/day$day.hs"
-##
-##chmod +x $file
-##if [ "$watch" == "-w" ]; then
-##    find src test -name "*.hs" | entr -s $file
-##else
-##    $file
-##fi
+
+if [ "$watch" == "-w" ]; then
+    find src app test -name "*.hs" | entr -s "$command"
+else 
+    echo $watch
+    $command
+fi
 
 

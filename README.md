@@ -1,13 +1,17 @@
 # advent-haskell
 
+### initialise helper programs
+`stack install` compiles programs and saves them to the repo dir
+
 ### start a new problem
-`./start_advent.sh <year> <day>`
+`start-advent YEAR DAY`
+`start-advent YEAR DAY -l racket`
 
 ### run a problem
-
-`stack run advent-<year>-<day>`
+`run-advent YEAR DAY`
+`run-advent YEAR DAY [-l racket]`
 
 ### download inputs
 set env var `AOC_SESSION_COOKIE`
 
-`./download_input.sh <year> <day>`
+inputs will be downloaded on first run
