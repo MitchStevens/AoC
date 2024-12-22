@@ -1,195 +1,25 @@
-author: Author name here
-copyright: 2022 Author name here
+name: package
 default-extensions:
-- FlexibleContexts
-- DeriveFunctor
-- DeriveFoldable
-- DeriveTraversable
-- DeriveGeneric
-- TypeFamilies
-- FlexibleInstances
-- MultiWayIf
-- LambdaCase
-- MultiParamTypeClasses
-- TemplateHaskell
-- TupleSections
-- ScopedTypeVariables
-- TypeOperators
+  - OverloadedStrings
+  - ExtendedDefaultRules
+  - ApplicativeDo
+  - BlockArguments
+  - LambdaCase
 dependencies:
-- base >= 4.19 && < 5
-- algebraic-graphs
-- array
-- comonad
-- containers
-- data-fix
-- free
-- ghc
-- group
-- indexed-traversable
-- lens
-- matrix
-- hashable
-- megaparsec
-- mtl
-- multiset
-- parser-combinators
-- recursion-schemes
-- pqueue
-- unordered-containers
-- monad-memo
-- sbv
-- semialign
-- split
-- these
-- transformers
-- vector
-- witherable
-description: Please see the README on GitHub at <https://github.com/githubuser/advent-haskell#readme>
-executables:
-  advent-2023-1:
-    ghc-options: []
-    main: Main
+  - base >= 4.19 && < 5
+  - array
+  - containers
+  - text
+  - optparse-applicative
+  - shelly
+  - yaml
+description: package for building helper programs
+executables: 
+  start-advent:
+    main: StartAdvent.Main
     source-dirs:
-    - src/
-    - app/2023/Day1/
-  advent-2023-2:
-    ghc-options: []
-    main: Main
+      - ./app/Advent/
+  run-advent:
+    main: RunAdvent.Main
     source-dirs:
-    - src/
-    - app/2023/Day2/
-  advent-2023-24:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2023/Day24/
-  advent-2024-1:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day1/
-  advent-2024-10:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day10/
-  advent-2024-11:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day11/
-  advent-2024-13:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day13/
-  advent-2024-14:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day14/
-  advent-2024-15:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day15/
-  advent-2024-16:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day16/
-  advent-2024-17:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day17/
-  advent-2024-18:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day18/
-  advent-2024-19:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day19/
-  advent-2024-2:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day2/
-  advent-2024-3:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day3/
-  advent-2024-4:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day4/
-  advent-2024-5:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day5/
-  advent-2024-6:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day6/
-  advent-2024-7:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day7/
-  advent-2024-8:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day8/
-  advent-2024-9:
-    ghc-options: []
-    main: Main
-    source-dirs:
-    - src/
-    - app/2024/Day9/
-extra-source-files:
-- README.md
-- CHANGELOG.md
-ghc-options:
-- -Wall
-- -Wcompat
-- -Widentities
-- -Wincomplete-record-updates
-- -Wincomplete-uni-patterns
-- -Wmissing-export-lists
-- -Wmissing-home-modules
-- -Wpartial-fields
-- -Wredundant-constraints
-github: githubuser/advent-haskell
-library:
-  dependencies: []
-  source-dirs: ./app
-license: BSD3
-maintainer: example@example.com
-name: advent-haskell
-version: 0.1.0.0
+      - ./app/Advent/

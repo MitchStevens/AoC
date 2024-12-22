@@ -7,12 +7,15 @@ import Data.Function (fix)
 import qualified Data.Map as M
 import Data.Set (Set)
 import qualified Data.Set as S
+import Data.Tuple
 import Data.Maybe
 import Point
-import Data.List (unfoldr, transpose)
+import Data.List as L
 import Data.Ix
 import Data.Functor.WithIndex
 import Data.Foldable.WithIndex
+import Algebra.Graph
+import Control.Monad
 
 showArray2D :: Array Point Char -> String
 showArray2D arr = unlines (map line [0..y])
@@ -21,7 +24,7 @@ showArray2D arr = unlines (map line [0..y])
         (_, (_, y)) = A.bounds arr
 
 readArray2D :: (a -> b) -> [[a]] -> Array Point b
-readArray2D f strs = A.listArray ((0, 0), top) (transpose strs >>= map f)
+readArray2D f strs = A.listArray ((0, 0), top) (L.transpose strs >>= map f)
     where top = (length strs -1, length (head strs) -1)
 
 extendArray2D :: (Array Point a -> Point -> b) -> Array Point a -> Array Point b
@@ -48,3 +51,20 @@ recurse arr f = fix (tabulate (A.bounds arr) . f)
 
 findIndex :: (Eq e, Ix i) => Array i e -> e -> Maybe i
 findIndex arr target = ifoldl (\i maybeInd e -> if e == target then Just i else maybeInd) Nothing arr
+
+--toGraph :: Array Point a -> Graph (Point, a)
+--toGraph array2D = fmap (\p -> (p, array2D ! p)) skeleton
+--    where
+--        skeleton :: Graph Point
+--        skeleton = edges $ do
+--            p <- range (A.bounds array2D)
+--            a <- cardinal p
+--            guard (inRange (A.bounds array2D) a)
+--            pure (p, a)
+
+{-
+vertexMap :: a -> g (VertexMap g a)
+vertexMap :: a -> Array Point [Point] -> (VertexMap g a)
+vertexMap :: a -> Array Point [Point] -> (PropertyMap (Array Point [Point] -> ??) Point a)
+
+-}

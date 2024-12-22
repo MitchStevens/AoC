@@ -25,9 +25,10 @@ package = {
     "comonad",
     "containers",
     "data-fix",
+    "optparse-applicative",
     "free",
     "ghc",
-    "group",
+    "graphs",
     "indexed-traversable",
     "lens",
     "matrix",
@@ -102,6 +103,13 @@ for year in (os.scandir("./app")):
       "ghc-options": [
       ]
     }
+
+package["executables"]["start-advent"] = {
+  "main": "StartAdvent.hs",
+  "source-dirs": ["src/Advent"]
+}
+
+
 
 with open('package.yaml', 'w') as outfile:
     yaml.dump(package, outfile, default_flow_style=False)
