@@ -10,17 +10,28 @@ import Data.Text (Text)
 import qualified Data.Text as T
 import Types
 
+data Options = Options
+  { adventDate :: AdventDate
+  , language :: Language
+  }
+
+optionsP :: Parser Options
+optionsP = Options <$> adventDateP <*> languageP
+
+-- create folder
+-- create Main.hs
+-- download input
 startAdvent :: Options -> Sh ()
 startAdvent (Options date@(AdventDate year day) language) = do
-  whenM (test_f file) $
-     echo_err ("Advent has already been started")
+  whenM (test_f file) $ do
+     echo "Advent has already been started"
+     exit 0
   
   mkdir_p fileDir
   touchfile file
-  writefile file contents
-
-  -- generatePackacke year day
+  writefile file mainContent
   downloadInput date 
+  exit 0
 
   where
     file = fileDir <> "Main.hs"
@@ -29,8 +40,8 @@ startAdvent (Options date@(AdventDate year day) language) = do
     fileDir = case language of
       Haskell -> printf "app/%d/Day%d/" year day
 
-    contents :: Text
-    contents = case language of
+    mainContent :: Text
+    mainContent = case language of
       Haskell -> T.unlines
         [ "import Advent"
         , ""

@@ -6,7 +6,6 @@ import Data.Set (Set)
 import qualified Data.Set as S
 import Data.Map (Map, (!))
 import qualified Data.Map as M
-import qualified Data.PQueue.Prio.Min as PQ
 
 type Path a = [a]
 

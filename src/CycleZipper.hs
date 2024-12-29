@@ -1,7 +1,7 @@
 module CycleZipper where
 
 import Control.Comonad
-import Data.List.NonEmpty (NonEmpty, (:|))
+import Data.List.NonEmpty (NonEmpty(..))
 import qualified Data.List.NonEmpty as NE
 
 data CycleZipper a = CZ
@@ -29,7 +29,7 @@ fromNonEmptyList :: NonEmpty a -> CycleZipper a
 fromNonEmptyList (x :| xs) = CZ 0 [] x (length xs) xs
 
 fromList :: [a] -> Maybe (CycleZipper a)
-fromList = fromNonEmptyList . NE.nonEmpty
+fromList = fmap fromNonEmptyList . NE.nonEmpty
 
 size :: CycleZipper a -> Int
 size (CZ bn _ _ fn _) = 1 + bn + fn

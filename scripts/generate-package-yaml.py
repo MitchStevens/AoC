@@ -2,113 +2,115 @@
 
 import yaml
 
-package = {
-  "name":                "advent-haskell",
-  "version":             "0.1.0.0",
-  "github":              "githubuser/advent-haskell",
-  "license":             "BSD3",
-  "author":              "Author name here",
-  "maintainer":          "example@example.com",
-  "copyright":           "2022 Author name here",
+DEPENDENCIES = [
+  "base >= 4.19 && < 5",
+  "array",
+  "comonad",
+  "containers",
+  "ghc",
+  "indexed-traversable",
+  "lens",
+  "megaparsec",
+  "mtl",
+  "parser-combinators",
+  "unordered-containers",
+  "semialign",
+  "split",
+  "shelly",
+  "transformers",
+  "text", 
+  "vector",
+  "hashable",
+  "witherable",
+]
 
-  "extra-source-files":  [ "README.md", "CHANGELOG.md" ],
-
-  # "synopsis":            None,
-  # "category":            None,
-
-  "description":         "Please see the README on GitHub at <https://github.com/githubuser/advent-haskell#readme>",
-
-  "dependencies": [
-    "base >= 4.19 && < 5",
-    "algebraic-graphs",
-    "array",
-    "comonad",
-    "containers",
-    "data-fix",
-    "optparse-applicative",
-    "free",
-    "ghc",
-    "graphs",
-    "indexed-traversable",
-    "lens",
-    "matrix",
-    "hashable",
-    "megaparsec",
-    "mtl",
-    "multiset",
-    "parser-combinators",
-    "recursion-schemes",
-    "pqueue",
-    "unordered-containers",
-    "monad-memo",
-    "sbv",
-    "semialign",
-    "split",
-    "these",
-    "transformers",
-    "vector",
-    "witherable",
-  ],
-
-  "library": {
-    "dependencies": [],
-    "source-dirs": "./app"
-  },
-
-
-  "default-extensions": [
-    "FlexibleContexts",
-    "DeriveFunctor",
-    "DeriveFoldable",
-    "DeriveTraversable",
-    "DeriveGeneric",
-    "TypeFamilies",
-    "FlexibleInstances",
-    "MultiWayIf",
-    "LambdaCase",
-    "MultiParamTypeClasses",
-    "TemplateHaskell",
-    "TupleSections",
-    "ScopedTypeVariables",
-    "TypeOperators",
-  ],
-
-  "ghc-options": [
-    "-Wall",
-    "-Wcompat",
-    "-Widentities",
-    "-Wincomplete-record-updates",
-    "-Wincomplete-uni-patterns",
-    "-Wmissing-export-lists",
-    "-Wmissing-home-modules",
-    "-Wpartial-fields",
-    "-Wredundant-constraints",
-  ],
-
-  "executables": {}
+OTHER_DEPENDENCIES = {
+  "2023": {
+    "1": [ "sbv" ]
+  }
 }
+# "algebraic-graphs",
+# "sbv",
+# "these",
+#  "group",
+#  "hashable",
+#  "matrix",
+
+
+DEFAULT_EXTENSIONS = [
+  "FlexibleContexts",
+  "DeriveFunctor",
+  "DeriveFoldable",
+  "DeriveTraversable",
+  "DeriveGeneric",
+  "TypeFamilies",
+  "FlexibleInstances",
+  "MultiWayIf",
+  "LambdaCase",
+  "MultiParamTypeClasses",
+  "ApplicativeDo",
+  "BlockArguments",
+  "OverloadedStrings",
+  "TemplateHaskell",
+  "TupleSections",
+  "ScopedTypeVariables",
+  "TypeOperators",
+]
+
+
+GHC_OPTIONS  = []
+# "ghc-options": [
+#     #"-Wall",
+#     #"-Wcompat",
+#     #"-Widentities",
+#     #"-Wincomplete-record-updates",
+#     #"-Wincomplete-uni-patterns",
+#     #"-Wmissing-export-lists",
+#     #"-Wmissing-home-modules",
+#     #"-Wpartial-fields",
+#     #"-Wredundant-constraints",
+#   ],
+
+
+def advent(year: int, day: int) -> dict:
+  other_deps = OTHER_DEPENDENCIES.get
+  return {
+    "main": "Main",
+    "source-dirs": [ "./src/", f"./app/{year}/Day{day}/" ],
+    "ghc-options": [],
+    "dependencies": DEPENDENCIES + OTHER_DEPENDENCIES.get(year, {}).get(day, []),
+  }
+
 
 import os
 import re
 
-for year in (os.scandir("./app")):
-  if not year.name.isdigit():
-    break
-
-  for dayFilePath in os.listdir(year):
-    day = re.match("Day([0-9]+)", dayFilePath).group(1)
-    package["executables"]["advent-" + year.name + "-" + day] = {
-      "main": f"Main",
-      "source-dirs": [ "src/", f"app/{year.name}/Day{day}/" ],
-      "ghc-options": [
-      ]
-    }
-
-package["executables"]["start-advent"] = {
-  "main": "StartAdvent.hs",
-  "source-dirs": ["src/Advent"]
+executables = { 
+  "start-advent": {
+    "main": "StartAdvent.Main",
+    "source-dirs": [ "./app/Advent/" ],
+    "dependencies": [ "optparse-applicative" ],
+  },
+  "run-advent": {
+    "main": "RunAdvent.Main",
+    "source-dirs": [ "./app/Advent/" ],
+    "dependencies": [ "optparse-applicative" ],
+  }
 }
 
+for year in range(2023, 2024 + 1) :
+  for day in range(1, 25 + 1):
+    if (os.path.exists(f"app/{year}/Day{day}/Main.hs")):
+      executables[f"advent-{year}-{day}"] = advent(year, day)
+
+package = {
+  "name": "advent",
+  "author": "Mitch Stevens",
+  "dependencies": DEPENDENCIES,
+  "ghc-options": GHC_OPTIONS,
+  "default-extensions": DEFAULT_EXTENSIONS,
+  "executables": executables
+}
 
 
 with open('package.yaml', 'w') as outfile:

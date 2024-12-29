@@ -1,25 +1,652 @@
-name: package
+author: Mitch Stevens
 default-extensions:
-  - OverloadedStrings
-  - ExtendedDefaultRules
-  - ApplicativeDo
-  - BlockArguments
-  - LambdaCase
+- FlexibleContexts
+- DeriveFunctor
+- DeriveFoldable
+- DeriveTraversable
+- DeriveGeneric
+- TypeFamilies
+- FlexibleInstances
+- MultiWayIf
+- LambdaCase
+- MultiParamTypeClasses
+- ApplicativeDo
+- BlockArguments
+- OverloadedStrings
+- TemplateHaskell
+- TupleSections
+- ScopedTypeVariables
+- TypeOperators
 dependencies:
-  - base >= 4.19 && < 5
-  - array
-  - containers
-  - text
-  - optparse-applicative
-  - shelly
-  - yaml
-description: package for building helper programs
-executables: 
-  start-advent:
-    main: StartAdvent.Main
+- base >= 4.19 && < 5
+- array
+- comonad
+- containers
+- ghc
+- indexed-traversable
+- lens
+- megaparsec
+- mtl
+- parser-combinators
+- unordered-containers
+- semialign
+- split
+- shelly
+- transformers
+- text
+- vector
+- hashable
+- witherable
+executables:
+  advent-2023-1:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
     source-dirs:
-      - ./app/Advent/
+    - ./src/
+    - ./app/2023/Day1/
+  advent-2023-2:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2023/Day2/
+  advent-2023-24:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2023/Day24/
+  advent-2023-3:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2023/Day3/
+  advent-2024-1:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day1/
+  advent-2024-10:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day10/
+  advent-2024-11:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day11/
+  advent-2024-12:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day12/
+  advent-2024-13:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day13/
+  advent-2024-14:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day14/
+  advent-2024-15:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day15/
+  advent-2024-16:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day16/
+  advent-2024-17:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day17/
+  advent-2024-18:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day18/
+  advent-2024-19:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day19/
+  advent-2024-2:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day2/
+  advent-2024-3:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day3/
+  advent-2024-4:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day4/
+  advent-2024-5:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day5/
+  advent-2024-6:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day6/
+  advent-2024-7:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day7/
+  advent-2024-8:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day8/
+  advent-2024-9:
+    dependencies:
+    - base >= 4.19 && < 5
+    - array
+    - comonad
+    - containers
+    - ghc
+    - indexed-traversable
+    - lens
+    - megaparsec
+    - mtl
+    - parser-combinators
+    - unordered-containers
+    - semialign
+    - split
+    - shelly
+    - transformers
+    - text
+    - vector
+    - hashable
+    - witherable
+    ghc-options: []
+    main: Main
+    source-dirs:
+    - ./src/
+    - ./app/2024/Day9/
   run-advent:
+    dependencies:
+    - optparse-applicative
     main: RunAdvent.Main
     source-dirs:
-      - ./app/Advent/
+    - ./app/Advent/
+  start-advent:
+    dependencies:
+    - optparse-applicative
+    main: StartAdvent.Main
+    source-dirs:
+    - ./app/Advent/
+ghc-options: []
+name: advent

@@ -8,6 +8,8 @@ import Text.Printf
 import Data.Text (Text)
 import qualified Data.Text as T
 import Control.Monad
+import Data.Foldable
+import Text.Read
 
 data AdventDate = AdventDate
   { year :: Int
@@ -18,11 +20,11 @@ data AdventDate = AdventDate
 data Language = Haskell
   deriving (Eq, Show, Enum, Bounded)
 
-data Options = Options
-  { adventDate :: AdventDate
-  , lang :: Language
-  }
-  deriving (Show)
+instance Read Language where
+  readsPrec _ str = do
+    lang <- [minBound .. maxBound]
+    guard (map toLower (show lang) == map toLower str) 
+    pure (lang, "")
 
 adventDateP :: Parser AdventDate
 adventDateP = do
@@ -45,14 +47,16 @@ adventDateP = do
       pure nat
 
 languageP :: Parser Language
-languageP = option (maybeReader readLang)
-  ( long "language"
-  <> short 'l'
-  <> value Haskell
-  <> help "Advent problem language (default Haskell) "
-  )
-  where
-    readLang s = L.find (\lang -> map toLower (show lang) == map toLower s) [minBound .. maxBound]
+languageP = option (maybeReader readMaybe) $ fold
+  [ long "language"
+  , short 'l'
+  , value Haskell
+  , help "Advent problem language (default Haskell) "
+  ]
 
-optionsP :: Parser Options
-optionsP = Options <$> adventDateP <*> languageP
+watchP :: Parser Bool
+watchP = switch $ fold
+  [ short 'w'
+  , long "watch"
+  , help "Rerun when source files are modified"
+  ]

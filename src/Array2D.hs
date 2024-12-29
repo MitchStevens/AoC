@@ -14,7 +14,6 @@ import Data.List as L
 import Data.Ix
 import Data.Functor.WithIndex
 import Data.Foldable.WithIndex
-import Algebra.Graph
 import Control.Monad
 
 showArray2D :: Array Point Char -> String

@@ -47,7 +47,7 @@ machineP = do
       pure (V.fromList [x, y])
 
 pivotPositions :: Num a => Matrix a -> [(Int, Int)]
-pivotPositions matrix = mapMaybe (\i -> fmap (\j -> (i, j)) . find (/= 0) . (`getRow` matrix) $ i) [0..(numRows matrix - 1)]
+pivotPositions matrix = mapMaybe (\i -> fmap (\j -> (x, j)) . find (/= 0) . (`getRow` matrix) $ i) [0..(numRows matrix - 1)]
   row 
 
 
